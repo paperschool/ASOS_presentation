@@ -61,13 +61,21 @@ module.exports = (server,app) => {
 
       // sending slide  data to all admins
       for(var admin in connections.admins){
+
         if(slide.end){
+
           slide.points = [];
+
           for(var client in connections.clients){
-            slide.points.push(connections.clients[client].name);
+            if(connections.clients[client].name)
+                slide.points.push(connections.clients[client].name);
+
           }
+
         }
+
         connections.admins[admin].emit('slide',slide);
+
       }
 
       // sending slide data to all clients
@@ -180,10 +188,13 @@ module.exports = (server,app) => {
     var users = [];
 
     for(var client in connections.clients){
-      users.push({
-        name:connections.clients[client].name,
-        colour:connections.clients[client].colour}
-      )
+
+      if(connections.clients[client].name){
+        users.push({
+          name:connections.clients[client].name,
+          colour:connections.clients[client].colour}
+        )
+      }
     }
 
     admin.emit('users',users);

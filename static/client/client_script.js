@@ -4,8 +4,11 @@ $(document).ready(()=>{
   var socket = io.connect('/client');
 
   socket.on('initial',(preference) => {
+
     setupColour(preference.colour)
-    $('#slide-title').text(` Hey ${preference.name}, waiting for admin...`)
+
+    $('#slide-title').text(` Hey ${ ( preference.name || Person ) }, waiting for admin...`)
+
   });
 
   socket.on('reload',(slide) => {
@@ -29,11 +32,12 @@ $(document).ready(()=>{
   function setupColour(colour){
 
     switch (colour) {
+
       case 'red':
         setBaseColour(200,100,100,255);
         break;
       case 'yellow':
-        setBaseColour(100,200,200,255);
+        setBaseColour(200,200,200,255);
         break;
       case 'blue':
         setBaseColour(100,100,200,255);
@@ -43,6 +47,7 @@ $(document).ready(()=>{
         break;
       default:
         break;
+
     }
 
   }
@@ -55,7 +60,7 @@ $(document).ready(()=>{
     title.fadeOut(200,()=>{
 
       if(slide.end){
-        title.fadeIn().delay(100).text(`Thank You to : `)
+        title.fadeIn().delay(100).text(`Thank You!`)
       } else {
         title.fadeIn().delay(100).text(slide.title)
       }

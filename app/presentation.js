@@ -6,30 +6,191 @@ var presentation = ( (args) => {
   slides.push({
     "index":1,
     "title":"Introduction",
-    "points":['test point 1','test point 1','test point 1'],
+    "points":[
+      'im Dominic!',
+      'Just Graduated :)',
+      'Rock Climber',
+      'Graphic Designer',
+      'Professional Italian'
+    ],
     "image":'/1.jpg'
   })
 
   slides.push({
     "index":2,
-    "title":"test2",
-    "points":['Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','test point 2','test point 2'],
+    "title":"Initial Thoughts",
+    "points":[
+      'Look through consumer lense',
+      'Identify unique aspects of the platform',
+      'Well executed standards',
+      'Apply SWOT'
+    ],
     "image":'/2.jpg'
   })
 
   slides.push({
     "index":3,
-    "title":"test3",
-    "points":['test point 3','test point 3','test point 3'],
+    "title":"Strengths",
+    "points":[
+      'Strong consumer Engagement',
+      'ASOS as a brand',
+      'Why you close sales',
+      'Mobile Platform',
+      'Unique Selling Point',
+    ],
     "image":'/3.jpg'
   })
 
   slides.push({
     "index":4,
-    "title":"test4",
-    "points":['test point 4','test point 4','test point 4'],
+    "title":"Consumer Engagement",
+    "points":[
+      '5th page on google to find bad PR',
+      'Social Media friendly',
+      'Publically seen to be a force for good (LGBT)',
+    ],
     "image":'/4.jpg'
   })
+
+  slides.push({
+    "index":5,
+    "title":"ASOS as a brand",
+    "points":[
+      'Democratising Online Retail',
+      'Surpassing Brick & Mortar',
+      'Embracing new trends',
+      'Pricing balance',
+      'Well placed Discounts / Promotional Events',
+      'Brand Mixing ( ASOS and Designer )'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Why ASOS Sells Well",
+    "points":[
+      'Searching 80,000 Products ( search bar )',
+      'Navigation of Products ( Categories, Filters, Inspo )',
+      'Purchasing ( Catwalk, Product Details )',
+      'Buy The Look',
+      'Check Out Click Complexity',
+      'Social Media Login'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"ASOS App",
+    "points":[
+      'Clean, Accurate and Easy to Navigate',
+      'Mirrors Site well ( inspo on homepage )',
+      'UI / Spaced Effectively',
+      'Sales Link Front and Center',
+      'Search by Image ( Potential Idea for this )'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"ASOS USP",
+    "points":[
+      'High Quality Product',
+      'Reasonable Prices',
+      'Available anywhere using the internet',
+      'Can buy entire wardrobe'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Weaknesses",
+    "points":[
+      'Return Rates',
+      'Visualisation of Stock',
+      'Overhead from deliveries',
+      'Free Shipping cost',
+      'Slightly Unapproachable',
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Returns",
+    "points":[
+      'Major return rates 20-40% cited*',
+      'Largely due to incorrect sizing',
+      'Curbed with education on sizing guides',
+      'Potential solutions?'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Visualisation",
+    "points":[
+      '360* Catwalk feature / Model Poses',
+      'Consumer is still guessing',
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Deliveries",
+    "points":[
+      'Costly for packaging / waste overhead',
+      'Free shipping can be costly if not matched by sales',
+      'Potential solutions? ( recyclables need more PR pushes )',
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Approachability",
+    "points":[
+      'Personal Opinions',
+      'Fashion Ignorence',
+      'Browsing is difficult ( only searching )',
+      'Little guidance',
+      'Potential idea here?'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Threats",
+    "points":[
+      'Growing Ecological Concerns Halting Business',
+      'Brexit / Economic Concerns',
+      'Which trends to Track',
+      'Competition',
+      'Depop / vintage / Reselling popularity',
+      'Internet Trend Pace'
+    ],
+    "image":'/4.jpg'
+  })
+
+  slides.push({
+    "index":5,
+    "title":"Opportunities",
+    "points":[
+      'Stronger Social Media Pushes',
+      'Guided Styling ( Site Interactivity ) ',
+      'Clothes Sizing Help ( idea )',
+      'Roulette Fashion ( idea )',
+      'Guerilla Marketing ( idea )'
+    ],
+    "image":'/4.jpg'
+  })
+
 
   slides.push({
     "index":5,
@@ -51,7 +212,7 @@ var presentation = ( (args) => {
     slides[counter]['end']    = ( max === counter );
     slides[counter]['name']   = null;
     slides[counter]['colour'] = null;
-    
+
     return slides[counter]
   }
 
