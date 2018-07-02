@@ -67,7 +67,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":6,
     "title":"Why ASOS Sells Well",
     "points":[
       'Searching 80,000 Products ( search bar )',
@@ -81,7 +81,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":7,
     "title":"ASOS App",
     "points":[
       'Clean, Accurate and Easy to Navigate',
@@ -94,7 +94,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":8,
     "title":"ASOS USP",
     "points":[
       'High Quality Product',
@@ -106,7 +106,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":9,
     "title":"Weaknesses",
     "points":[
       'Return Rates',
@@ -119,7 +119,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":10,
     "title":"Returns",
     "points":[
       'Major return rates 20-40% cited*',
@@ -131,7 +131,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":11,
     "title":"Visualisation",
     "points":[
       '360* Catwalk feature / Model Poses',
@@ -141,7 +141,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":12,
     "title":"Deliveries",
     "points":[
       'Costly for packaging / waste overhead',
@@ -152,7 +152,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":13,
     "title":"Approachability",
     "points":[
       'Personal Opinions',
@@ -165,7 +165,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":14,
     "title":"Threats",
     "points":[
       'Growing Ecological Concerns Halting Business',
@@ -179,7 +179,7 @@ var presentation = ( (args) => {
   })
 
   slides.push({
-    "index":5,
+    "index":15,
     "title":"Opportunities",
     "points":[
       'Stronger Social Media Pushes',
@@ -193,7 +193,7 @@ var presentation = ( (args) => {
 
 
   slides.push({
-    "index":5,
+    "index":16,
     "title":"Thank You!",
     "points":[],
     "image":'/end.png'

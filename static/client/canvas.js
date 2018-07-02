@@ -36,7 +36,12 @@ function setup() {
 
 function draw() {
 
-  background(51,51,51,100);
+  background(
+    baseColour.r * 0.40,
+    baseColour.g * 0.40,
+    baseColour.b * 0.40,
+    100
+  );
 
   noStroke();
 

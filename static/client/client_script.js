@@ -37,7 +37,7 @@ $(document).ready(()=>{
         setBaseColour(200,100,100,255);
         break;
       case 'yellow':
-        setBaseColour(200,200,200,255);
+        setBaseColour(200,200,100,255);
         break;
       case 'blue':
         setBaseColour(100,100,200,255);
