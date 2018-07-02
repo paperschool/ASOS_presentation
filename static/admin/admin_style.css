@@ -95,6 +95,11 @@ body {
   border-left: 4px solid #d63031;
 }
 
+.orange {
+  background-color: #fab1a0;
+  border-left: 4px solid #e17055;
+}
+
 .blue {
   background-color: #74b9ff;
   border-left: 4px solid #0984e3;
@@ -108,4 +113,9 @@ body {
 .yellow {
   background-color: #ffeaa7;
   border-left: 4px solid #fdcb6e;
+}
+
+.pink {
+  background-color: #fd79a8;
+  border-left: 4px solid #e84393;
 }
