@@ -74,9 +74,15 @@ module.exports = (server,app) => {
 
     var ip = user.handshake.address
 
-    connections.clients[ip] = user;
+    // checking if client already exists
+    if(ip in connections.clients){
+      console.log("Existing Client Connected");
 
-    console.log("Client Connected");
+    } else {
+      console.log("New Client Connected");
+      connections.clients[ip] = user;
+
+    }
 
     user.emit('reload',presentation.getCurrent())
 
