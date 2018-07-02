@@ -154,7 +154,17 @@ class Ball {
   draw(){
 
     // fill(map(this.pos.x,0,width,0,255),map(this.pos.x,0,width,255,0),255)
-    fill(baseColour.r,baseColour.g,baseColour.b,baseColour.a)
+
+    if(this.speed > this.speedNorm){
+      fill(baseColour.r+random(-50,50),
+      baseColour.g+random(-50,50),
+      baseColour.b+random(-50,50),
+      baseColour.a+random(-50,50))
+    } else {
+      fill(baseColour.r,baseColour.g,baseColour.b,baseColour.a)
+    }
+
+
     ellipse(this.pos.x,this.pos.y,this.size,this.size);
 
   }
