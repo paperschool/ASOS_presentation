@@ -38,11 +38,20 @@ var init = (app) => {
 
     console.log("Client Page Accessed")
 
+    var ip = req.connection.remoteAddress;
+
     app.use(express.static(CLIENT_DIRECTORY));
 
     app.use(express.static(LIBRARY_DIRECTORY));
 
     res.sendFile(CLIENT_DIRECTORY+'/index.html')
+
+    // if(!(ip in socket.connections.clients) &&
+    //   socket.connections.clients[ip].name &&
+    //   socket.connections.clients[ip].colour){
+    // } else {
+    //   res.redirect('/')
+    // }
 
   })
 

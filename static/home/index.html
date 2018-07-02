@@ -15,15 +15,32 @@
 
   <body noscroll="true" >
 
-    <label for="lname">Last Name</label>
+    <div class="title">
+      <h1>Welcome!</h1>
+      <a>Enter the details, and hit ready when you are done!</a>
+    </div>
+
+
+    <label for="lname">Name</label>
 
     <input type="text" id="lname" name="lname">
 
+    <label for="lname">Pick A Colour</label>
+
+    <div class="colour-selction">
+      <div class="colour-options red" id="red">red</div>
+      <div class="colour-options blue" id="blue">blue</div>
+      <div class="colour-options green" id="green">green</div>
+      <div class="colour-options yellow" id="yellow">yellow</div>
+    </div>
+
+    <div class="ready" id="ready">Ready!</div>
 
     <script src="/jquery-3.3.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/script.js"></script>
 
-  </body>
+
+</body>
 
 </html>

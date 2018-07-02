@@ -60,6 +60,10 @@ var presentation = ( (args) => {
     return slides[counter]
   }
 
+  methods.reset = () => {
+    counter = 0;
+  }
+
   // returning array of functional methods
   return methods;
 

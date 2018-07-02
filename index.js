@@ -16,6 +16,8 @@ var server = http.createServer(app);
 
 var socket = require('./app/socket')(server,app);
 
+module.exports.socke = socket;
+
 /**
  * Get port from environment and store in Express.
  */

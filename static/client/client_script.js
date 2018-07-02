@@ -3,6 +3,11 @@ $(document).ready(()=>{
 
   var socket = io.connect('/client');
 
+  socket.on('reload',(slide) => {
+    console.log("Server Sent Current Slide!",slide)
+    buildList(slide)
+  })
+
   socket.on('next',(slide) => {
     console.log("Server Sent Next Slide!",slide)
     buildList(slide)
@@ -12,11 +17,6 @@ $(document).ready(()=>{
     console.log("Server Sent Previous Slide!",slide)
     buildList(slide)
   });
-
-  socket.on('reload',(slide) => {
-    console.log("Server Sent Current Slide!",slide)
-    buildList(slide)
-  })
 
   function buildList(slide) {
 

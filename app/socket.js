@@ -20,6 +20,8 @@ module.exports = (server,app) => {
   // storing socket connection for client connections
   var client = io.of('/client')
 
+  var admin_ready = false;
+
 
   admin.on('connection',function(user){
 
@@ -27,9 +29,27 @@ module.exports = (server,app) => {
 
     console.log("Admin Connected");
 
+    user.on('ready-presentation', () => {
+
+      console.log("Admin Readied Presentation...")
+
+      admin_ready = true;
+
+      // storing reference to next slide
+      var slide = presentation.getCurrent();
+
+      // sending slide data to all clients
+      for(var client in connections.clients){
+        connections.clients[client].emit('reload',slide);
+      }
+
+    });
+
     user.on('next-slide',(msg) => {
 
       console.log("Admin Changed Slide - Next")
+
+      if(!admin_ready) return;
 
       // storing reference to next slide
       var slide = presentation.getNext();
@@ -48,6 +68,8 @@ module.exports = (server,app) => {
 
     user.on('previous-slide',(msg) => {
       console.log("Admin Changed Slide - Previous")
+
+      if(!admin_ready) return;
 
       // storing reference to next slide
       var slide = presentation.getPrevious();
@@ -68,6 +90,14 @@ module.exports = (server,app) => {
       console.log("Admin   Disconnected")
     });
 
+    user.on('reset-presentation', () => {
+
+      console.log("Admin Reset Presentation...")
+
+      presentation.reset();
+
+    })
+
   });
 
   client.on('connection', function(user){
@@ -86,10 +116,14 @@ module.exports = (server,app) => {
     user.on('preferences',(preferences) => {
       connections.clients[user.handshake.address]['name'] = preferences.name
       connections.clients[user.handshake.address]['colour'] = preferences.colour
+      user.emit('redirect','/client');
     })
 
-    // on reconnect display current slide
-    user.emit('reload',presentation.getCurrent())
+
+    if(admin_ready){
+      // on reconnect display current slide
+      user.emit('reload',presentation.getCurrent())
+    }
 
     user.on('event', function(data){
       console.log("Client Connected")
