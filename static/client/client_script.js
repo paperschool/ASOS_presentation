@@ -34,17 +34,24 @@ $(document).ready(()=>{
     switch (colour) {
 
       case 'red':
-        setBaseColour(200,100,100,255);
+        setBaseColour(255, 118, 117,255);
         break;
       case 'yellow':
-        setBaseColour(200,200,100,255);
+        setBaseColour(255, 234, 167,255);
         break;
       case 'blue':
-        setBaseColour(100,100,200,255);
+        setBaseColour(116, 185, 255,255);
         break;
       case 'green':
-        setBaseColour(100,200,100,255);
+        setBaseColour(85, 239, 196,255);
         break;
+      case 'pink':
+        setBaseColour(253, 121, 168,255);
+        break;
+      case 'orange':
+        setBaseColour(250, 177, 160,255);
+        break;
+
       default:
         break;
 

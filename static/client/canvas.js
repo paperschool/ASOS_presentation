@@ -1,5 +1,5 @@
 
-let balls = [];
+let balls = null;
 
 let clicks = [];
 
@@ -16,10 +16,12 @@ function windowResized() {
 
 function mouseClicked() {
   clicks.push(new Click(mouseX,mouseY));
+  balls.scatter();
 }
 
 function touchEnded(){
   clicks.push(new Click(mouseX,mouseY));
+  balls.scatter();
 }
 
 function setup() {
@@ -28,9 +30,7 @@ function setup() {
 
   canvas.parent('slide-canvas-container');
 
-  for(var i = 0 ; i < 20 ; i++){
-    balls.push(ball = new Ball())
-  }
+  balls = new Balls(20);
 
 }
 
@@ -59,10 +59,8 @@ function draw() {
 
   }
 
-  for(var ball of balls){
-    ball.update();
-    ball.draw();
-  }
+  balls.update();
+  balls.draw();
 
 }
 
@@ -94,6 +92,45 @@ function boostAll(){
   for(var ball of balls){
     ball.boost();
   }
+}
+
+class Balls {
+
+  constructor(count){
+
+    this.balls = [];
+    this.count = count;
+
+    for(var i = 0 ; i < this.count ; i++){
+      this.balls.push(new Ball())
+    }
+
+  }
+
+  update(){
+    for(var ball of this.balls){
+      ball.update();
+    }
+  }
+
+  scatter(){
+
+    let mouse = createVector(mouseX,mouseY);
+
+    for(var ball of this.balls){
+      ball.dir.x = mouse.x - ball.pos.x
+      ball.dir.y = mouse.y - ball.pos.y
+      ball.dir.normalize();
+      ball.boost();
+    }
+  }
+
+  draw(){
+    for(var ball of this.balls){
+      ball.draw();
+    }
+  }
+
 }
 
 class Ball {
@@ -155,17 +192,20 @@ class Ball {
 
     // fill(map(this.pos.x,0,width,0,255),map(this.pos.x,0,width,255,0),255)
 
+    let sizeDelta = 0;
+
     if(this.speed > this.speedNorm){
       fill(baseColour.r+random(-50,50),
       baseColour.g+random(-50,50),
       baseColour.b+random(-50,50),
       baseColour.a+random(-50,50))
+      sizeDelta = random(-10,10)
     } else {
       fill(baseColour.r,baseColour.g,baseColour.b,baseColour.a)
     }
 
 
-    ellipse(this.pos.x,this.pos.y,this.size,this.size);
+    ellipse(this.pos.x,this.pos.y,this.size+sizeDelta,this.size+sizeDelta);
 
   }
 

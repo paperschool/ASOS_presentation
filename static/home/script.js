@@ -34,6 +34,8 @@ $(document).ready(() => {
   var blue = $('#blue');
   var green = $('#green');
   var yellow = $('#yellow');
+  var orange = $('#orange');
+  var pink = $('#pink');
 
   var clear = () => {
 
@@ -41,6 +43,8 @@ $(document).ready(() => {
     blue.removeClass('option-active');
     green.removeClass('option-active');
     yellow.removeClass('option-active');
+    pink.removeClass('option-active');
+    orange.removeClass('option-active');
 
   }
 
@@ -67,5 +71,19 @@ $(document).ready(() => {
     yellow.addClass('option-active');
     colour = 'yellow';
   });
+
+  pink.on('click touchstart', () => {
+    clear();
+    pink.addClass('option-active');
+    colour = 'pink';
+  });
+
+  orange.on('click touchstart', () => {
+    clear();
+    orange.addClass('option-active');
+    colour = 'orange';
+  });
+
+
 
 })
