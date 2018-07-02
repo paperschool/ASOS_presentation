@@ -7,6 +7,8 @@ var init = (app) => {
 
   var PUBLIC_DIRECTORY = path.join(__dirname,'../static/public');
 
+  var HOME_DIRECTORY = path.join(__dirname,'../static/home');
+
   var IMAGE_DIRECTORY = path.join(__dirname,'../static/images');
 
   var LIBRARY_DIRECTORY = path.join(__dirname,'../static/libraries');
@@ -23,9 +25,20 @@ var init = (app) => {
 
     console.log("Home Page Accessed")
 
-    app.use(express.static(CLIENT_DIRECTORY));
+    app.use(express.static(HOME_DIRECTORY));
 
-    app.use(express.static(IMAGE_DIRECTORY));
+    app.use(express.static(LIBRARY_DIRECTORY));
+
+    res.sendFile(HOME_DIRECTORY+'/index.html')
+
+  })
+
+  // redirect for 'logged' client
+  app.get('/client',(req,res) => {
+
+    console.log("Client Page Accessed")
+
+    app.use(express.static(CLIENT_DIRECTORY));
 
     app.use(express.static(LIBRARY_DIRECTORY));
 

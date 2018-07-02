@@ -72,18 +72,23 @@ module.exports = (server,app) => {
 
   client.on('connection', function(user){
 
+    // fetching ip from socket connection
     var ip = user.handshake.address
 
     // checking if client already exists
     if(ip in connections.clients){
       console.log("Existing Client Connected");
-
     } else {
       console.log("New Client Connected");
       connections.clients[ip] = user;
-
     }
 
+    user.on('preferences',(preferences) => {
+      connections.clients[user.handshake.address]['name'] = preferences.name
+      connections.clients[user.handshake.address]['colour'] = preferences.colour
+    })
+
+    // on reconnect display current slide
     user.emit('reload',presentation.getCurrent())
 
     user.on('event', function(data){
