@@ -38,7 +38,7 @@ var init = (app) => {
 
     console.log("Client Page Accessed")
 
-    var ip = req.connection.remoteAddress;
+    // var ip = req.connection.remoteAddress;
 
     app.use(express.static(CLIENT_DIRECTORY));
 

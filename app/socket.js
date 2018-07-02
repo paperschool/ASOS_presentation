@@ -22,7 +22,6 @@ module.exports = (server,app) => {
 
   var admin_ready = false;
 
-
   admin.on('connection',function(user){
 
     connections.admins[user.handshake.address] = user;
@@ -94,6 +93,8 @@ module.exports = (server,app) => {
 
       console.log("Admin Reset Presentation...")
 
+      admin_ready = true;
+
       presentation.reset();
 
     })
@@ -108,6 +109,7 @@ module.exports = (server,app) => {
     // checking if client already exists
     if(ip in connections.clients){
       console.log("Existing Client Connected");
+      connections.clients[ip] = user;
     } else {
       console.log("New Client Connected");
       connections.clients[ip] = user;

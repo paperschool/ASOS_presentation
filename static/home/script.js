@@ -9,8 +9,8 @@ $(document).ready(() => {
 
   // when redirect event occurs
   socket.on('redirect',(link) => {
+    socket.disconnect();
     window.location.href = "/client";
-
   });
 
   $('#ready').on('click',() => {
