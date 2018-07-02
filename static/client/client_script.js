@@ -54,6 +54,8 @@ $(document).ready(()=>{
 
   function buildList(slide) {
 
+    boostAll();
+
     // storing reference to title
     var title = $('#slide-title');
 

@@ -85,6 +85,12 @@ class Click {
 
 }
 
+function boostAll(){
+  for(var ball of balls){
+    ball.boost();
+  }
+}
+
 class Ball {
 
   constructor(x,y){
@@ -96,6 +102,9 @@ class Ball {
 
     this.speed = random(1,5)
 
+    this.speedNorm = this.speed;
+    this.speedup = this.speed*5;
+
     this.size = random(10,50)
 
     this.pos = createVector(
@@ -103,6 +112,10 @@ class Ball {
       random(0,height)
     );
 
+  }
+
+  boost(){
+    this.speed = this.speedUp;
   }
 
   bound(){
@@ -121,6 +134,12 @@ class Ball {
 
     this.pos.x += this.dir.x * this.speed
     this.pos.y += this.dir.y * this.speed
+
+    if(this.speed > this.speedNorm){
+      this.speed *= 0.98
+    }
+
+    if(this.speed < this.speedNorm) this.speed = this.speedNorm
 
     this.bound();
 
