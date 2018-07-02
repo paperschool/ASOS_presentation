@@ -60,6 +60,8 @@ module.exports = (server,app) => {
 
       // sending slide data to all clients
       for(var client in connections.clients){
+        slide.name = client.name;
+        slide.colour = client.colour;
         connections.clients[client].emit('next',slide);
       }
 

@@ -24,7 +24,13 @@ $(document).ready(()=>{
     var title = $('#slide-title');
 
     title.fadeOut(200,()=>{
-      title.fadeIn().delay(100).text(slide.title)
+
+      if(slide.end){
+        title.fadeIn().delay(100).text(`Thank You, ${slide.name}`)
+      } else {
+        title.fadeIn().delay(100).text(slide.title)
+      }
+
     })
 
 

@@ -34,7 +34,7 @@ var presentation = ( (args) => {
   slides.push({
     "index":5,
     "title":"Thank You!",
-    "points":['thank you','thank you','thank you','thank you'],
+    "points":[],
     "image":'/end.png'
   })
 
@@ -51,7 +51,11 @@ var presentation = ( (args) => {
   }
 
   methods.getNext = () => {
+
     counter = ++counter >= max ? max : counter
+
+    slides[counter]['end'] = ( max === counter );
+
     return slides[counter]
   }
 
