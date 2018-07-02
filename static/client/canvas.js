@@ -89,9 +89,7 @@ class Click {
 }
 
 function boostAll(){
-  for(var ball of balls){
-    ball.boost();
-  }
+  balls.boost();
 }
 
 class Balls {
@@ -110,6 +108,12 @@ class Balls {
   update(){
     for(var ball of this.balls){
       ball.update();
+    }
+  }
+
+  boost(){
+    for(var ball of this.balls){
+      ball.boost()
     }
   }
 
