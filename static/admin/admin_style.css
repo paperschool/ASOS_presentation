@@ -1,0 +1,85 @@
+
+body {
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+}
+
+.admin-details {
+  background: #48dbfb;
+  position: absolute;
+  width:100%;
+  height:10%;
+  bottom: 0;
+}
+
+.button-ready {
+
+  /* position: absolute; */
+  width: 100%;
+  height: 70px;
+  background: #74b9ff;
+  border: 1px solid white;
+}
+
+.button-container {
+  position: relative;
+  width:100%;
+  height:100px;
+}
+
+.button-directional {
+
+  width: 50%;
+  height: 100%;
+  float:left;
+  background: #1dd1a1;
+
+  border: 1px solid white;
+
+}
+
+.button-directional:nth-child(odd) {
+  background: #ff6b6b;
+}
+
+.button-text {
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  color:white;
+  font-size: 1.2em;
+  text-align: center;
+
+}
+
+.slide-details {
+  position: relative;
+  width:100%;
+  height:40px;
+  padding:10px;
+  background: #dfe6e9;
+  border: 1px solid white;
+}
+
+.slide-content {
+  position: relative;
+  width:100%;
+  height:200px;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.4em;
+  overflow: scroll;
+  background: #dfe6e9;
+  border: 1px solid white;
+}
+
+.slide-number {
+  position: absolute;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Control</title>
+
+  <link rel="stylesheet" href="/admin_style.css">
+  <link rel="stylesheet" href="/global.css">
+
+</head>
+
+  <body>
+
+    <div class="button-ready" id="ready-button">
+      <div class="button-text">READY</div>
+    </div>
+
+    <div class="button-container">
+
+      <div class="button-directional" id="previous-slide">
+        <div class="button-text">PREVIOUS</div>
+      </div>
+
+      <div class="button-directional" id="next-slide">
+        <div class="button-text">NEXT</div>
+      </div>
+
+    </div>
+
+    <div class="slide-details" id="slide-details">
+      123
+    </div>
+
+    <div class="slide-content" id="slide-content">
+    </div>
+
+    <div class="admin-details">
+    </div>
+
+    <script src="/jquery-3.3.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+      var socket = io.connect('/admin');
+
+      var ready_button = document.getElementById("ready-button");
+
+      ready_button.onclick = () => {
+        socket.emit("ready-presentation",() => {
+        })
+      }
+
+      var next_button = document.getElementById("next-slide");
+
+      next_button.onclick = () => {
+        socket.emit("next-slide",() => {
+          console.log("Slide Successfuly Changed");
+        })
+      }
+
+      var previous_button = document.getElementById("previous-slide");
+
+      previous_button.onclick = () => {
+        socket.emit("previous-slide",() => {
+          console.log("Slide Successfuly Changed");
+        })
+      }
+
+      socket.on('slide',(slide) => {
+
+        $('#slide-details').empty();
+
+        $('#slide-details').text(slide.index + ' - ' + slide.title);
+
+        $('#slide-content').empty();
+
+        for(var s of slide.points){
+          $('#slide-content').append('<a>'+s+'</a><br /><br />')
+        }
+
+      })
+
+    </script>
+
+  </body>
+
+</html>
