@@ -48,6 +48,18 @@ module.exports = (server,app) => {
         connections.clients[client].emit('reload',slide);
       }
 
+      // sending slide  data to all admins
+      for(var admin in connections.admins){
+        if(slide.end){
+          slide.points = [];
+          for(var client in connections.clients){
+            if(connections.clients[client].name)
+                slide.points.push(connections.clients[client].name);
+          }
+        }
+        connections.admins[admin].emit('slide',slide);
+      }
+
     });
 
     user.on('next-slide',(msg) => {
