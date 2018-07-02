@@ -72,7 +72,7 @@ module.exports = (server,app) => {
 
   client.on('connection', function(user){
 
-    let ip = user.handshake.address
+    var ip = user.handshake.address
 
     connections.clients[ip] = user;
 
