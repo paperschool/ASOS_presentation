@@ -7,7 +7,7 @@ $(document).ready(()=>{
 
     setupColour(preference.colour)
 
-    $('#slide-title').text(` Hey ${ ( preference.name || Person ) }, waiting for admin...`)
+    $('#slide-title').text(` Hey ${ ( preference.name || 'Person' ) }, waiting for admin...`)
 
   });
 

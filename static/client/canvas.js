@@ -103,7 +103,8 @@ class Ball {
     this.speed = random(1,5)
 
     this.speedNorm = this.speed;
-    this.speedup = this.speed*5;
+
+    this.speedUp = this.speedNorm*5;
 
     this.size = random(10,50)
 
