@@ -1,5 +1,5 @@
 
-var presentation = ( (...args) => {
+var presentation = ( (args) => {
 
   var slides = [];
 
