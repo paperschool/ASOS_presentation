@@ -20,13 +20,16 @@ module.exports = (server,app) => {
   // storing socket connection for client connections
   var client = io.of('/client')
 
+
   var admin_ready = false;
 
   admin.on('connection',function(user){
 
-    connections.admins[user.handshake.address] = user;
+    connections.admins[user.id] = user;
 
     console.log("Admin Connected");
+
+    getUserBase()
 
     user.on('ready-presentation', () => {
 
@@ -39,6 +42,8 @@ module.exports = (server,app) => {
 
       // sending slide data to all clients
       for(var client in connections.clients){
+        slide.name   = connections.clients[client].name;
+        slide.colour = connections.clients[client].colour;
         connections.clients[client].emit('reload',slide);
       }
 
@@ -53,15 +58,21 @@ module.exports = (server,app) => {
       // storing reference to next slide
       var slide = presentation.getNext();
 
-      // sending slide data to all admins
+      // sending slide  data to all admins
       for(var admin in connections.admins){
+        if(slide.end){
+          slide.points = [];
+          for(var client in connections.clients){
+            slide.points.push(connections.clients[client].name);
+          }
+        }
         connections.admins[admin].emit('slide',slide);
       }
 
       // sending slide data to all clients
       for(var client in connections.clients){
-        slide.name = client.name;
-        slide.colour = client.colour;
+        slide.name   = connections.clients[client].name;
+        slide.colour = connections.clients[client].colour;
         connections.clients[client].emit('next',slide);
       }
 
@@ -82,6 +93,8 @@ module.exports = (server,app) => {
 
       // sending slide data to all clients
       for(var client in connections.clients){
+        slide.name   = connections.clients[client].name;
+        slide.colour = connections.clients[client].colour;
         connections.clients[client].emit('previous',slide);
       }
 
@@ -105,24 +118,46 @@ module.exports = (server,app) => {
 
   client.on('connection', function(user){
 
-    // fetching ip from socket connection
-    var ip = user.handshake.address
+    console.log("Connection From : ",user.request.connection.remoteAddress);
+
+    let ip = user.request.connection.remoteAddress
 
     // checking if client already exists
     if(ip in connections.clients){
+
       console.log("Existing Client Connected");
+
+      var name = connections.clients[ip].name;
+      var colour = connections.clients[ip].colour;
+
       connections.clients[ip] = user;
+
+      connections.clients[ip]['name'] = name;
+      connections.clients[ip]['colour'] = colour;
+
+      user.emit('initial',{name:name,colour:colour})
+
+      getUserBase()
+
     } else {
       console.log("New Client Connected");
       connections.clients[ip] = user;
     }
 
     user.on('preferences',(preferences) => {
-      connections.clients[user.handshake.address]['name'] = preferences.name
-      connections.clients[user.handshake.address]['colour'] = preferences.colour
+
+      console.log("Client Submitted Preferences ... ",preferences)
+
+      connections.clients[ip]['name'] = preferences.name
+      connections.clients[ip]['colour'] = preferences.colour
+
       user.emit('redirect','/client');
+
     })
 
+    for(let user in connections.clients){
+      console.log("User: ",user);
+    }
 
     if(admin_ready){
       // on reconnect display current slide
@@ -138,5 +173,21 @@ module.exports = (server,app) => {
     });
 
   });
+
+  function getUserBase(){
+
+    var users = [];
+
+    for(var client in connections.clients){
+      users.push({
+        name:connections.clients[client].name,
+        colour:connections.clients[client].colour}
+      )
+    }
+
+    admin.emit('users',users);
+
+
+  }
 
 }

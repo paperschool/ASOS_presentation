@@ -17,6 +17,12 @@ body {
   bottom: 0;
 }
 
+.admin-detail-user {
+  color:black;
+  float: left;
+  margin-right: 10px;
+}
+
 .button-ready {
 
   /* position: absolute; */
@@ -82,4 +88,24 @@ body {
 
 .slide-number {
   position: absolute;
+}
+
+.red {
+  background-color: #ff7675;
+  border-left: 4px solid #d63031;
+}
+
+.blue {
+  background-color: #74b9ff;
+  border-left: 4px solid #0984e3;
+}
+
+.green {
+  background-color: #55efc4;
+  border-left: 4px solid #00b894;
+}
+
+.yellow {
+  background-color: #ffeaa7;
+  border-left: 4px solid #fdcb6e;
 }

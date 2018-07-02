@@ -3,6 +3,13 @@ let balls = [];
 
 let clicks = [];
 
+let baseColour = {r:255,g:255,b:255,a:255}
+
+function setBaseColour(r,g,b,a){
+  baseColour = {r:r,g:g,b:b,a:a}
+  return baseColour;
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -121,8 +128,8 @@ class Ball {
 
   draw(){
 
-    fill(map(this.pos.x,0,width,0,255),map(this.pos.x,0,width,255,0),255)
-
+    // fill(map(this.pos.x,0,width,0,255),map(this.pos.x,0,width,255,0),255)
+    fill(baseColour.r,baseColour.g,baseColour.b,baseColour.a)
     ellipse(this.pos.x,this.pos.y,this.size,this.size);
 
   }

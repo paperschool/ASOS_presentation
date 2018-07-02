@@ -47,6 +47,11 @@ var presentation = ( (args) => {
   var methods = {}
 
   methods.getCurrent = () => {
+
+    slides[counter]['end']    = ( max === counter );
+    slides[counter]['name']   = null;
+    slides[counter]['colour'] = null;
+    
     return slides[counter]
   }
 
@@ -54,13 +59,21 @@ var presentation = ( (args) => {
 
     counter = ++counter >= max ? max : counter
 
-    slides[counter]['end'] = ( max === counter );
+    slides[counter]['end']    = ( max === counter );
+    slides[counter]['name']   = null;
+    slides[counter]['colour'] = null;
 
     return slides[counter]
   }
 
   methods.getPrevious = () => {
+
     counter = --counter <= 0 ? 0 : counter
+
+    slides[counter]['end']    = ( max === counter );
+    slides[counter]['name']   = null;
+    slides[counter]['colour'] = null;
+
     return slides[counter]
   }
 

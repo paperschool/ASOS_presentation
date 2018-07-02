@@ -127,6 +127,26 @@ html,body {
 
 }
 
+.red {
+  background-color: #ff7675;
+  border-left: 4px solid #d63031;
+}
+
+.blue {
+  background-color: #74b9ff;
+  border-left: 4px solid #0984e3;
+}
+
+.green {
+  background-color: #55efc4;
+  border-left: 4px solid #00b894;
+}
+
+.yellow {
+  background-color: #ffeaa7;
+  border-left: 4px solid #fdcb6e;
+}
+
 @media screen and (max-device-width : 700px) {
 
  .slide-list-item {

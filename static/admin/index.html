@@ -83,6 +83,18 @@
 
       })
 
+      socket.on('users',(users) => {
+
+        $('.admin-details').empty();
+
+        for(var user of users){
+          $('.admin-details').append(
+            '<div class="admin-detail-user '+user.colour+'">'+user.name+'</div>'
+          )
+        }
+
+      });
+
     </script>
 
   </body>

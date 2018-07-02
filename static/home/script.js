@@ -5,7 +5,7 @@ $(document).ready(() => {
 
   var colour = null;
 
-  var name = null;
+  var name = ''
 
   // when redirect event occurs
   socket.on('redirect',(link) => {
@@ -13,9 +13,12 @@ $(document).ready(() => {
     window.location.href = "/client";
   });
 
-  $('#ready').on('click',() => {
 
+  $('#name').on('keyup',()=>{
     name = $('#name').val();
+  })
+
+  $('#ready').on('click',() => {
 
     let preferences = {
       'name' : name,
