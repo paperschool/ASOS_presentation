@@ -120,7 +120,7 @@ module.exports = (server,app) => {
 
     console.log("Connection From : ",user.request.connection.remoteAddress);
 
-    let ip = user.request.connection.remoteAddress
+    var ip = user.request.connection.remoteAddress
 
     // checking if client already exists
     if(ip in connections.clients){
