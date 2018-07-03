@@ -68,6 +68,18 @@ var init = (app) => {
 
   })
 
+  app.get('/restart-server',(req,res) => {
+
+    const shell = require('shelljs');
+   //shell.exec(comandToExecute, {silent:true}).stdout;
+   //you need little improvisation
+   shell.exec(__dirname + '/../restart.sh')
+
+   res.redirect('/')
+
+  })
+
+
 }
 
 module.exports = init;
