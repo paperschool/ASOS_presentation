@@ -5,9 +5,9 @@ var presentation = ( (args) => {
 
   slides.push({
     "index":1,
-    "title":"Introduction",
+    "title":"Hi",
     "points":[
-      'im Dominic!',
+      'I\'m Dominic!',
       'Just Graduated :)',
       'Rock Climber',
       'Graphic Designer',
