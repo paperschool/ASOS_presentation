@@ -17,6 +17,17 @@ body {
   bottom: 0;
 }
 
+.server-restart {
+  /* background: #48dbfb; */
+  position: absolute;
+  width: 70px;
+  height:70px;
+  bottom: 0;
+  right:0;
+  background: red;
+
+}
+
 .admin-detail-user {
   color:black;
   float: left;
