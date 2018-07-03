@@ -156,7 +156,7 @@ var presentation = ( (args) => {
     "title":"Approachability",
     "points":[
       'Personal Opinions',
-      'Fashion Ignorence',
+      'Fashion Ignorance',
       'Browsing is difficult ( only searching )',
       'Little guidance',
       'Potential idea here?'
